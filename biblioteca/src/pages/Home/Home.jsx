@@ -427,7 +427,7 @@ const Home = () => {
             <label htmlFor="exemplar_id">Exemplar</label>
             <select defaultValue={modal.register?.livro.id || ''} name="exemplar_id" id="exemplar_id" required>
               <option value="" disabled>Selecione o exemplar</option>
-              {exemplaresAtivos.map((e) => 
+              {disponiveis.map((e) => 
                 <option value={e.id} key={e.id}>{e.livro.titulo} | {e.cod_identificacao}</option>
               )}
             </select>
