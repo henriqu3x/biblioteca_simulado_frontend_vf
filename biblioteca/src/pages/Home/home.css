@@ -1,0 +1,194 @@
+#home{
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+     gap: 30px;
+     padding: 40px;
+     background-color: #efefef;
+}
+
+#home .title{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+
+#home .title button{
+     cursor: pointer;
+     width: 200px;
+     padding: 10px 15px;
+     border: none;
+     background-color: #2363eb;
+     color: #fff;
+     border-radius: 8px;
+     transition: 0.2s all ease-in-out;
+}
+
+
+#home .title button:hover{
+     opacity: 0.7;
+}
+
+
+#home .cards{
+     display: flex;
+     align-items: center;
+     gap: 10px;
+}
+
+#home .cards .card{
+     width: 100%;
+     background-color: #fff;
+     height: 180px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     border-radius: 8px;
+}
+
+#home .tabs-content{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+#home .tabs-content .tabs{
+     display: flex;
+     gap: 5px;
+     padding: 15px;
+     border-bottom: 2px solid #2363eb;
+}
+
+#home .tabs-content .tabs .tab{
+     cursor: pointer;
+     padding: 10px 15px;
+     border: none;
+     background-color: #2363eb;
+     color: #fff;
+     border-radius: 8px;
+     transition: 0.2s all ease-in-out;
+}
+
+#home .tabs-content .tabs .tab:hover{
+     opacity: 0.8;
+}
+
+.active {
+     opacity: 0.7;
+}
+
+:disabled{
+     display: none;
+}
+
+option:disabled{
+     opacity: 0.6;
+     display: block;
+}
+
+#home .box-info{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+
+#home .box-info .btn-adc{
+     cursor: pointer;
+     padding: 10px 15px;
+     border: none;
+     background-color: #2363eb;
+     color: #fff;
+     border-radius: 8px;
+     transition: 0.2s all ease-in-out;
+     width: 200px;
+}
+
+#home .box-info .btn-adc:hover{
+     opacity: 0.7;
+}
+
+#home .box-info .filtros{
+     display: flex;
+     align-items: center;
+     gap: 10px;
+}
+
+#home .box-info .filtros input{
+     border: 2px solid #666;
+     outline: none;
+     padding: 10px 15px;
+     width: 350px;
+     background-color: transparent;
+     border-radius: 8px;
+}
+
+#home .box-info .filtros input:focus{
+     border: 2px solid #2363eb;
+}
+
+#home .box-info .filtros select {
+     border: 2px solid #666;
+     outline: none;
+     padding: 10px 15px;
+     background-color: transparent;
+     border-radius: 8px;
+     cursor: pointer;
+}
+
+#home .box-info .filtros select:focus{
+     border: 2px solid #2363eb;
+}
+
+#home .cards-content{
+     display: flex;
+     flex-direction: column;
+     gap: 5px;
+     padding-bottom: 30px;
+}
+
+#home .cards-content .card-content{
+     background-color: #2363eb;
+     color: #fff;
+     padding: 10px;
+     height: 75px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     border-radius: 8px;
+}
+
+#home .cards-content .card-content .box-btns{
+     display: flex;
+     gap: 5px;
+}
+
+#home .cards-content .card-content .box-btns button:nth-child(1) {
+     border: 2px solid #fff;
+     padding: 10px 15px;
+     width: 200px;
+     background-color: transparent;
+     border-radius: 8px;
+     color: #fff;
+     cursor: pointer;
+     transition: 0.2s all ease-in-out;
+}
+
+#home .cards-content .card-content .box-btns button:nth-child(1):hover {
+     background-color: #ffffff5b;
+}
+
+#home .cards-content .card-content .box-btns button:nth-child(2) {
+     border: 2px solid #fff;
+     padding: 10px 15px;
+     width: 200px;
+     background-color: #d60000;
+     border-radius: 8px;
+     color: #fff;
+     cursor: pointer;
+     transition: 0.2s all ease-in-out;
+}
+
+#home .cards-content .card-content .box-btns button:nth-child(2):hover {
+     opacity: 0.7;
+}
