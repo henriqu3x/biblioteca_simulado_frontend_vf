@@ -149,6 +149,32 @@ const Home = () => {
     }
   }
 
+  const deletar = async (id) => {
+    try {
+      setError('')
+      setMsg('')
+
+      const result = await api.delete(`${tab}/${id}`)
+
+      setMsg(result.data.message)
+
+      const settersPorTab = {
+        usuarios: setUsuarios,
+        livros: setLivros
+      }
+
+      const setEntidade = settersPorTab[tab]
+      const entidadeDeletada = result.data.result
+
+      setEntidade((entidades) => entidades.filter((e) => e.id != entidadeDeletada.id))
+
+      buscarApi()
+    } catch (error) {
+      const message = error.response?.data?.error || error.response?.data?.error
+      setError(message)
+    }
+  }
+
   let conteudo;
   let formulario;
   let filtros;
@@ -206,6 +232,7 @@ const Home = () => {
           <div className="box-btns">
             <button disabled={!isAdmin} aria-label='editar' onClick={() => setModal({open: true, mode: 'att', register: e})}>Editar</button>
             <button disabled={!isAdmin} aria-label='arquivar' onClick={() => alterarAtivo(e.id)}>{e.ativo ? 'Arquivar' : 'Desarquivar'}</button>
+            <button disabled={!isAdmin} aria-label='deletar' onClick={() => deletar(e.id)}>Deletar</button>
           </div>
         </article>
       )
@@ -331,6 +358,7 @@ const Home = () => {
           <div className="box-btns">
             <button disabled={!isAdmin} aria-label='editar' onClick={() => setModal({open: true, mode: 'att', register: e})}>Editar</button>
             <button disabled={!isAdmin} aria-label='arquivar' onClick={() => alterarAtivo(e.id)}>{e.ativo ? 'Arquivar' : 'Desarquivar'}</button>
+            <button disabled={!isAdmin} aria-label='deletar' onClick={() => deletar(e.livro.id)}>Deletar</button>
           </div>
         </article>
       )
