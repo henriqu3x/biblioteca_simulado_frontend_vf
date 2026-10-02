@@ -132,6 +132,7 @@ option:disabled{
      border-radius: 8px;
      transition: 0.2s all ease-in-out;
      width: 200px;
+     margin-top: 5px;
 }
 
 #home .box-info .btn-adc:hover{
