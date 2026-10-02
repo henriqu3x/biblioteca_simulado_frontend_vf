@@ -253,7 +253,7 @@ const Home = () => {
           <div className="box-text">
             <p>Nome: {e.nome}</p>
             <p>Perfil: {e.perfil}</p>
-            <p>Ativo: {e.ativo ? 'Ativo' : 'Inativo'}</p>
+            <p>Status: {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
           </div>
           <div className="box-btns">
             <button disabled={!isAdmin} aria-label='editar' onClick={() => setModal({open: true, mode: 'att', register: e})}>Editar</button>
