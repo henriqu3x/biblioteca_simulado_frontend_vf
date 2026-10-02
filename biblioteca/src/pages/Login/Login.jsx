@@ -2,6 +2,7 @@ import { useState } from "react"
 import {useAuth} from '../../contexts/AuthContext'
 import { useNavigate } from "react-router-dom"
 import Toast from '../../components/Toast/Toast'
+import logo from '../../assets/logo-bg.png'
 import './login.css'
 
 const Login = () => {
@@ -28,7 +29,9 @@ const Login = () => {
   return (
     <main id="login">
       <section className="box-info">
-        <h1>SABER+</h1>
+        <div>
+          <img src={logo} alt="Logo" />
+        </div>
         <p>Acesso autorizado somente a funcionarios</p>
       </section>
       <section className="box-form">

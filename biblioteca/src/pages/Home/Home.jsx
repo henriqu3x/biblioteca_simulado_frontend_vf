@@ -5,6 +5,7 @@ import {useAuth} from '../../contexts/AuthContext'
 import Toast from '../../components/Toast/Toast'
 import Modal from '../../components/Modal/Modal'
 import dataConvertida from '../../services/dataConvertida'
+import logo from '../../assets/logo-bg.png'
 
 const Home = () => {
   const {user,isAdmin,logout} = useAuth()
@@ -510,29 +511,54 @@ const Home = () => {
   return (
     <main id="home">
       <section className='title'>
-        <div className="box-text">
-          <h1>Painel Administrativo</h1>
-          <p>Gerencie todos os recursos da plataforma</p>
+        <div>
+          <div>
+            <img src={logo} alt="logo" />
+          </div>
+          <div className="box-text">
+            <h1>Painel Administrativo</h1>
+            <p>Gerencie todos os recursos da plataforma</p>
+          </div>
         </div>
         <button aria-label='SAIR' onClick={logout}>SAIR</button>
       </section>
 
       <section className="cards">
         <article className="card">
-          <h2>{livrosAtivos.length}</h2>
-          <p>Livros</p>
+          <div>
+            <p>Total de livros</p>
+            <h2>{livrosAtivos.length}</h2>
+          </div>
+          <div>
+            <i className="fa-solid fa-book"></i>
+          </div>
         </article>
         <article className="card">
-          <h2>{exemplaresAtivos.length}</h2>
-          <p>Exemplares</p>
+          <div>
+            <p>Total de exemplares</p>
+            <h2>{exemplaresAtivos.length}</h2>
+          </div>
+          <div>
+            <i className="fa-solid fa-book-open"></i>
+          </div>
         </article>
         <article className="card">
-          <h2>{disponiveis.length}</h2>
-          <p>Disponiveis</p>
+          <div>
+            <p>Exemplares disponiveis</p>
+            <h2>{disponiveis.length}</h2>
+          </div>
+          <div>
+            <i className="fa-solid fa-check"></i>
+          </div>
         </article>
         <article className="card">
-          <h2>{emprestados.length}</h2>
-          <p>Emprestados</p>
+          <div>
+            <p>Exemplares emprestados</p>
+            <h2>{emprestados.length}</h2>
+          </div>
+          <div>
+            <i className="fa-solid fa-hand-holding"></i>
+          </div>
         </article>
       </section>
 

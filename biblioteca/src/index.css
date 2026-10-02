@@ -4,3 +4,8 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+
+:root{
+  --details-blue: #004f7a;
+  --details-orange: #f28c28;
+}

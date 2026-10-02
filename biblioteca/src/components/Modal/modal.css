@@ -33,7 +33,7 @@
 }
 
 #overlay .modal .title div:hover{
-     color: #2563eb;
+     color: var(--details-orange);
 }
 
 #overlay .modal form {
@@ -60,7 +60,7 @@
 }
 
 #overlay .modal form .label-input input:focus{
-     border: 2px solid #2563eb;
+     border: 2px solid var(--details-orange);
 }
 
 #overlay .modal form .label-input select{
@@ -74,7 +74,7 @@
 }
 
 #overlay .modal form .label-input select:focus{
-     border: 2px solid #2563eb;
+     border: 2px solid var(--details-orange);
      
 }
 
@@ -82,7 +82,7 @@
      margin-top: auto;
      padding: 10px 15px;
      border-radius: 8px;
-     background-color: #2563eb;
+     background-color: var(--details-blue);
      border: none;
      cursor: pointer;
      color: #fff;

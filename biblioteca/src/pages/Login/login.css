@@ -5,8 +5,8 @@
 
 #login .box-info{
      width: 400px;
-     background-color: #2563eb;
-     color: #fff;
+     background-color: #fff;
+     color: #000;
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -15,20 +15,29 @@
      gap: 3px;
 }
 
+#login .box-info div img{
+     height: 300px;
+}
+
+#login .box-info p{
+     margin-top: -20px;
+}
+
 #login .box-form{
      width: 100%;
-     background-color: #efefef;
+     background-color: #004f7a;
      display: flex;
      flex-direction: column;
      align-items: center;
      padding-top: 30px;
+     color: #fff;
 }
 
 #login .box-form form {
      display: flex;
      flex-direction: column;
      width: 50%;
-     margin-top: 180px;
+     margin-top: 220px;
      gap: 10px;
 }
 
@@ -43,22 +52,27 @@
      border-radius: 8px;
      background-color: transparent;
      outline: none;
-     border: 2px solid #666;
+     border: 2px solid #fff;
      transition: 0.2s all ease-in-out;
+     color: #fff;
 }
 
 #login .box-form form .label-input input:focus{
-     border: 2px solid #2563eb;
+     border: 2px solid #f28c28;
 }
 
 #login .box-form form button{
      padding: 10px 15px;
      border-radius: 8px;
-     background-color: #2563eb;
+     background-color: #f28c28;
      border: none;
      cursor: pointer;
      color: #fff;
      transition: 0.2s all ease-in-out;
+}
+
+::placeholder{
+     color: #fff;
 }
 
 #login .box-form form button:hover{
