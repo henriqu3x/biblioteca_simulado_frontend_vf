@@ -46,6 +46,31 @@ const Home = () => {
   const [emprestimosStatus, setEmprestimosStatus] = useState('')
   const emprestimosFiltrados = emprestimos.filter((e) => (!emprestimosStatus || e.emprestimo.status == emprestimosStatus) && (!usuarioEmprestimo || e.emprestimo.usuario_id == usuarioEmprestimo))
 
+  //PAGINAÇÃO
+  const obterListaAtual = () => {
+  switch (tab) {
+    case 'usuarios': return usuarios
+    case 'autores': return autores
+    case 'categorias': return categorias
+    case 'livros': return livrosFiltrados
+    case 'exemplares': return exemplarFiltrado
+    case 'emprestimos': return emprestimosFiltrados
+    case 'devolucoes': return devolucoes
+    default: return []
+  }
+}
+  const listaAtual = obterListaAtual()
+  const [paginaAtual, setPaginaAtual] = useState(1)
+  const itensPorPagina = 5
+
+  const paginar = (lista) => {
+    const inicio = (paginaAtual - 1) * itensPorPagina
+    const fim = inicio + itensPorPagina
+
+    return lista.slice(inicio, fim)
+  }
+
+
   const buscarApi = async () => {
     try {
       setError('')
@@ -223,7 +248,7 @@ const Home = () => {
           </div>
         </>
       )
-      conteudo = usuarios.map((e) =>
+      conteudo = paginar(usuarios).map((e) =>
         <article className="card-content">
           <div className="box-text">
             <p>Nome: {e.nome}</p>
@@ -255,7 +280,7 @@ const Home = () => {
           </div>
         </>
       )
-      conteudo = autores.map((e) =>
+      conteudo = paginar(autores).map((e) =>
         <article className="card-content">
           <div className="box-text">
             <p>Nome: {e.nome}</p>
@@ -283,7 +308,7 @@ const Home = () => {
 
         </>
       )
-      conteudo = categorias.map((e) =>
+      conteudo = paginar(categorias).map((e) =>
         <article className="card-content">
           <div className="box-text">
             <p>Nome: {e.nome}</p>
@@ -349,7 +374,7 @@ const Home = () => {
           </div>
         </>
       )
-      conteudo = livrosFiltrados.map((e) =>
+      conteudo = paginar(livrosFiltrados).map((e) =>
         <article className="card-content">
           <div className="box-text">
             <p>Isbn: {e.livro.isbn}</p>
@@ -410,7 +435,7 @@ const Home = () => {
           </div>
         </>
       )
-      conteudo = exemplarFiltrado.map((e) =>
+      conteudo = paginar(exemplarFiltrado).map((e) =>
         <article className="card-content">
           <div className="box-text">
             <p>Identificação: {e.cod_identificacao}</p>
@@ -463,7 +488,7 @@ const Home = () => {
           </div>
         </>
       )
-      conteudo = emprestimosFiltrados.map((e) =>
+      conteudo = paginar(emprestimosFiltrados).map((e) =>
         <article className="card-content">
           <div className="box-text">
             <p>Identificação: {e.exemplar.cod_identificacao}</p>
@@ -492,7 +517,7 @@ const Home = () => {
           </div>
         </>
       )
-      conteudo = devolucoes.map((e) =>
+      conteudo = paginar(devolucoes).map((e) =>
         <article className="card-content">
           <div className="box-text">
             <p>Identificação: {e.emprestimo.emprestimo_exemplar[0].exemplar.cod_identificacao}</p>
@@ -526,7 +551,7 @@ const Home = () => {
       <section className="cards">
         <article className="card">
           <div>
-            <p>Total de livros</p>
+            <p>Total de titulos</p>
             <h2>{livrosAtivos.length}</h2>
           </div>
           <div>
@@ -587,6 +612,26 @@ const Home = () => {
       <section className="cards-content">
         {conteudo}
       </section>
+
+      <div className="paginacao">
+        <button
+          disabled={paginaAtual === 1}
+          onClick={() => setPaginaAtual(paginaAtual - 1)}
+        >
+          <i className="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <span>Página {paginaAtual}</span>
+
+        <button
+          disabled={paginaAtual * itensPorPagina >= listaAtual.length}
+          onClick={() => setPaginaAtual(paginaAtual + 1)}
+        >
+          <i className="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+
       {error? <Toast tipo="error" message={error}/> : null}
       {msg? <Toast tipo="message" message={msg}/> : null}
       {modal.open? <Modal titulo={modal.mode == 'add' ? `Adicionar ${tab}` : `Editar ${tab}`} onClose={() => setModal({open: false, mode: 'add', register: null})} onSubmit={enviarFormulario} formulario={formulario}/> : null}
