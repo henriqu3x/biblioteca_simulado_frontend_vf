@@ -251,9 +251,9 @@ const Home = () => {
       conteudo = paginar(usuarios).map((e) =>
         <article className="card-content">
           <div className="box-text">
-            <p>Nome: {e.nome}</p>
-            <p>Perfil: {e.perfil}</p>
-            <p>Status: {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
+            <h3>{e.nome}</h3>
+            <p>{e.perfil} • {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
+            <p></p>
           </div>
           <div className="box-btns">
             <button disabled={!isAdmin} aria-label='editar' onClick={() => setModal({open: true, mode: 'att', register: e})}>Editar</button>
