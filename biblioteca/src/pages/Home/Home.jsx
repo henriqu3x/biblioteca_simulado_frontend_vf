@@ -252,9 +252,12 @@ const Home = () => {
       conteudo = paginar(usuarios).map((e) =>
         <article className="card-content">
           <div className="box-text">
-            <p>Nome: {e.nome}</p>
-            <p>Perfil: {e.perfil}</p>
-            <p>Ativo: {e.ativo ? 'Ativo' : 'Inativo'}</p>
+            <span>{e.nome}</span>
+            <div>
+              <p>{e.perfil}</p>
+              <p>• {e.email}</p>
+              <p>•{e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
+            </div>
           </div>
           <div className="box-btns">
             <button disabled={!isAdmin} aria-label='editar' onClick={() => setModal({open: true, mode: 'att', register: e})}>Editar</button>
@@ -284,9 +287,14 @@ const Home = () => {
       conteudo = paginar(autores).map((e) =>
         <article className="card-content">
           <div className="box-text">
-            <p>Nome: {e.nome}</p>
-            <p>Nascionalidade: {e.nascionalidade}</p>
-            <p>Data Nascimento: {dataConvertida(e.data_nascimento)}</p>
+            <span>
+              <p>{e.nome}</p>
+            </span>
+            <div>
+              <p>{e.nascionalidade}</p>
+              <p>• {dataConvertida(e.data_nascimento)}</p>
+              <p>•{e.ativo? '🟢 Ativo' : '🔴 Inativo'}</p>
+            </div>
           </div>
           <div className="box-btns">
             <button disabled={!isAdmin} aria-label='editar' onClick={() => setModal({open: true, mode: 'att', register: e})}>Editar</button>
@@ -312,8 +320,11 @@ const Home = () => {
       conteudo = paginar(categorias).map((e) =>
         <article className="card-content">
           <div className="box-text">
-            <p>Nome: {e.nome}</p>
-            <p>Descrição: {e.descricao}</p>
+            <span>{e.nome}</span>
+            <div>
+              <p>{e.descricao}</p>
+              <p>•{e.ativo? '🟢 Ativo' : '🔴 Inativo'}</p>
+            </div>
           </div>
           <div className="box-btns">
             <button aria-label='editar' onClick={() => setModal({open: true, mode: 'att', register: e})}>Editar</button>
@@ -378,9 +389,12 @@ const Home = () => {
       conteudo = paginar(livrosFiltrados).map((e) =>
         <article className="card-content">
           <div className="box-text">
-            <p>Isbn: {e.livro.isbn}</p>
-            <p>Titulo: {e.livro.titulo}</p>
-            <p>Descrição: {e.livro.descricao}</p>
+            <span>{e.livro.titulo}</span>
+            <div>
+              <p>{e.livro.isbn}</p>
+              <p>• {e.livro.descricao}</p>
+              <p>•{e.ativo? '🟢 Ativo' : '🔴 Inativo'}</p>
+            </div>
           </div>
           <div className="box-btns">
             <button disabled={!isAdmin} aria-label='editar' onClick={() => setModal({open: true, mode: 'att', register: e})}>Editar</button>
