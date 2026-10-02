@@ -64,9 +64,10 @@ const Home = () => {
   const itensPorPagina = 5
 
   const paginar = (lista) => {
+    
     const inicio = (paginaAtual - 1) * itensPorPagina
     const fim = inicio + itensPorPagina
-
+    
     return lista.slice(inicio, fim)
   }
 
@@ -589,13 +590,27 @@ const Home = () => {
 
       <section className="tabs-content">
         <div className="tabs">
-          <button aria-label='tab' className={tab == 'usuarios' ? 'tab active' : 'tab'} onClick={() => setTab('usuarios')}>Usuarios</button>
-          <button disabled={!isAdmin} aria-label='tab' className={tab == 'autores' ? 'tab active' : 'tab'} onClick={() => setTab('autores')}>Autores</button>
-          <button disabled={!isAdmin} aria-label='tab' className={tab == 'categorias' ? 'tab active' : 'tab'} onClick={() => setTab('categorias')}>Categorias</button>
-          <button aria-label='tab' className={tab == 'livros' ? 'tab active' : 'tab'} onClick={() => setTab('livros')}>Livros</button>
-          <button aria-label='tab' className={tab == 'exemplares' ? 'tab active' : 'tab'} onClick={() => setTab('exemplares')}>Exemplares</button>
-          <button aria-label='tab' className={tab == 'emprestimos' ? 'tab active' : 'tab'} onClick={() => setTab('emprestimos')}>Emprestimos</button>
-          <button aria-label='tab' className={tab == 'devolucoes' ? 'tab active' : 'tab'} onClick={() => setTab('devolucoes')}>Devoluções</button>
+          <button aria-label='tab' className={tab == 'usuarios' ? 'tab active' : 'tab'} onClick={() => { setTab('usuarios')
+          setPaginaAtual(1)
+          }}>Usuarios</button>
+          <button disabled={!isAdmin} aria-label='tab' className={tab == 'autores' ? 'tab active' : 'tab'} onClick={() => {
+            setTab('autores') 
+            setPaginaAtual(1)}}>Autores</button>
+          <button disabled={!isAdmin} aria-label='tab' className={tab == 'categorias' ? 'tab active' : 'tab'} onClick={() => {setTab('categorias')
+            setPaginaAtual(1)
+          }}>Categorias</button>
+          <button aria-label='tab' className={tab == 'livros' ? 'tab active' : 'tab'} onClick={() => { setTab('livros')
+          setPaginaAtual(1)
+          }}>Livros</button>
+          <button aria-label='tab' className={tab == 'exemplares' ? 'tab active' : 'tab'} onClick={() =>{ setTab('exemplares')
+            setPaginaAtual(1)
+          }}>Exemplares</button>
+          <button aria-label='tab' className={tab == 'emprestimos' ? 'tab active' : 'tab'} onClick={() => { setTab('emprestimos')
+            setPaginaAtual(1)
+          }}>Emprestimos</button>
+          <button aria-label='tab' className={tab == 'devolucoes' ? 'tab active' : 'tab'} onClick={() => {setTab('devolucoes')
+            setPaginaAtual(1)
+          }}>Devoluções</button>
         </div>
       </section>
 
