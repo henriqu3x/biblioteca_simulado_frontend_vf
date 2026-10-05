@@ -259,6 +259,12 @@ option:disabled{
      align-items: center;
      gap: 3px;
 }
+#home .cards-content .card-content .box-text p.descricao{
+     text-overflow: ellipsis;
+     overflow: hidden;
+     white-space: nowrap;
+     width: 250px;
+}
 
 #home .paginacao{
      display: flex;

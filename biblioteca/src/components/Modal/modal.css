@@ -63,6 +63,23 @@
      border: 2px solid var(--details-orange);
 }
 
+#overlay .modal form .label-input textarea{
+     padding: 10px 15px;
+     border-radius: 8px;
+     background-color: transparent;
+     outline: none;
+     border: 2px solid #666;
+     transition: 0.2s all ease-in-out;
+     max-width: 100%;
+     min-width: 100%;
+     max-height: 100px;
+     min-height: 100px;
+}
+
+#overlay .modal form .label-input textarea:focus{
+     border: 2px solid var(--details-orange);
+}
+
 #overlay .modal form .label-input select{
      padding: 10px 15px;
      border-radius: 8px;

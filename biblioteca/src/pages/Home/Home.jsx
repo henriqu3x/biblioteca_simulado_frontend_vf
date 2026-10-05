@@ -202,6 +202,8 @@ const Home = () => {
     }
   }
 
+  const dataHoje = new Date().toISOString().split('T')[0]
+
   let conteudo;
   let formulario;
   let filtros;
@@ -232,7 +234,7 @@ const Home = () => {
           </div>
           <div className="label-input">
             <label htmlFor="data_nascimento">Data nascimento</label>
-            <input defaultValue={dataConvertida(modal.register?.data_nascimento, 'modal') || ''} name='data_nascimento' id='data_nascimento' type="date" aria-label='Input-modal' placeholder='Digite sua data de nascimento' required/>
+            <input defaultValue={dataConvertida(modal.register?.data_nascimento, 'modal') || ''} name='data_nascimento' id='data_nascimento' type="date" aria-label='Input-modal' placeholder='Digite sua data de nascimento' required max={dataHoje}/>
           </div>
           <div className="label-input">
             <label htmlFor="endereco">Endereço</label>
@@ -280,7 +282,7 @@ const Home = () => {
           </div>
           <div className="label-input">
             <label htmlFor="data_nascimento">Data nascimento</label>
-            <input defaultValue={dataConvertida(modal.register?.data_nascimento, 'modal') || ''} name='data_nascimento' id='data_nascimento' type="date" aria-label='Input-modal' placeholder='Digite a data de nascimento do autor' required/>
+            <input defaultValue={dataConvertida(modal.register?.data_nascimento, 'modal') || ''} name='data_nascimento' id='data_nascimento' type="date" aria-label='Input-modal' placeholder='Digite a data de nascimento do autor' required max={dataHoje}/>
           </div>
         </>
       )
@@ -310,7 +312,7 @@ const Home = () => {
           </div>
           <div className="label-input">
             <label htmlFor="descricao">Descrição</label>
-            <input defaultValue={modal.register?.descricao || ''} name='descricao' id='descricao' type="text" aria-label='Input-modal' placeholder='Digite a descrição da categoria' required/>
+            <textarea defaultValue={modal.register?.descricao || ''} name='descricao' id='descricao' type="text" aria-label='Input-modal' placeholder='Digite a descrição da categoria' required/>
           </div>
 
         </>
@@ -320,7 +322,7 @@ const Home = () => {
           <div className="box-text">
             <span>{e.nome}</span>
             <div>
-              <p>{e.descricao}</p>
+              <p className='descricao'>{e.descricao}</p>
               <p>• {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
             </div>
           </div>
@@ -371,7 +373,7 @@ const Home = () => {
           </div>
           <div className="label-input">
             <label htmlFor="descricao">Descrição</label>
-            <input defaultValue={modal.register?.livro.descricao || ''} name='descricao' id='descricao' type="text" aria-label='Input-modal' placeholder='Digite o descricao do livro' required/>
+            <textarea defaultValue={modal.register?.livro.descricao || ''} name='descricao' id='descricao' type="text" aria-label='Input-modal' placeholder='Digite o descricao do livro' required/>
           </div>
           <div className="label-input">
             <label htmlFor="autor_id">Autor</label>
@@ -390,7 +392,7 @@ const Home = () => {
             <span>{e.livro.titulo}</span>
             <div>
               <p>{e.livro.isbn}</p>
-              <p>• {e.livro.descricao}</p>
+              <p className='descricao'>• {e.livro.descricao}</p>
               <p>• {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
             </div>
           </div>
