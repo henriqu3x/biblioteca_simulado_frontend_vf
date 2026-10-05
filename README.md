@@ -1,4 +1,19 @@
 
+# Saber+ Biblioteca
+
+Sistema para gerenciamento interno de uma biblioteca
+## Funcionalidades
+
+- Conversão de data
+- Consumo de api
+- Gerenciamento de usuarios
+- Gerenciamento de autores
+- Gerenciamento de categorias
+- Gerenciamento de livros
+- Gerenciamento de exemplares
+- Gerenciamento de emprestimos
+- Gerenciamento de devoluções
+
 ## Como rodar o projeto
 
 
@@ -28,4 +43,11 @@ Inicie o servidor
 ```bash
   npm run dev
 ```
+
+
+## Tecnologias Utilizadas
+
+- Vite
+- Axios
+- React router dom
 
