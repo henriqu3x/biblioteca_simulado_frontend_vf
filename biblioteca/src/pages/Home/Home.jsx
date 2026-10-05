@@ -256,7 +256,7 @@ const Home = () => {
             <div>
               <p>{e.perfil}</p>
               <p>• {e.email}</p>
-              <p>•{e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
+              <p>• {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
             </div>
           </div>
           <div className="box-btns">
@@ -287,13 +287,11 @@ const Home = () => {
       conteudo = paginar(autores).map((e) =>
         <article className="card-content">
           <div className="box-text">
-            <span>
-              <p>{e.nome}</p>
-            </span>
+            <span>{e.nome}</span>
             <div>
               <p>{e.nascionalidade}</p>
               <p>• {dataConvertida(e.data_nascimento)}</p>
-              <p>•{e.ativo? '🟢 Ativo' : '🔴 Inativo'}</p>
+              <p>• {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
             </div>
           </div>
           <div className="box-btns">
@@ -323,7 +321,7 @@ const Home = () => {
             <span>{e.nome}</span>
             <div>
               <p>{e.descricao}</p>
-              <p>•{e.ativo? '🟢 Ativo' : '🔴 Inativo'}</p>
+              <p>• {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
             </div>
           </div>
           <div className="box-btns">
@@ -393,7 +391,7 @@ const Home = () => {
             <div>
               <p>{e.livro.isbn}</p>
               <p>• {e.livro.descricao}</p>
-              <p>•{e.ativo? '🟢 Ativo' : '🔴 Inativo'}</p>
+              <p>• {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
             </div>
           </div>
           <div className="box-btns">
@@ -453,9 +451,12 @@ const Home = () => {
       conteudo = paginar(exemplarFiltrado).map((e) =>
         <article className="card-content">
           <div className="box-text">
-            <p>Identificação: {e.cod_identificacao}</p>
-            <p>Titulo: {e.livro.titulo}</p>
-            <p>Status: {e.status}</p>
+            <span>{e.livro.titulo}</span>
+            <div>
+              <p>{e.cod_identificacao}</p>
+              <p>• {e.status}</p>
+              <p>• {e.ativo ? '🟢 Ativo' : '🔴 Inativo'}</p>
+            </div>
           </div>
           <div className="box-btns">
             <button disabled={!isAdmin} aria-label='editar' onClick={() => setModal({open: true, mode: 'att', register: e})}>Editar</button>
@@ -506,9 +507,11 @@ const Home = () => {
       conteudo = paginar(emprestimosFiltrados).map((e) =>
         <article className="card-content">
           <div className="box-text">
-            <p>Identificação: {e.exemplar.cod_identificacao}</p>
-            <p>Titulo: {e.exemplar.livro.titulo}</p>
-            <p>Status: {e.emprestimo.status}</p>
+            <span>{e.exemplar.livro.titulo}</span>
+            <div>
+              <p>{e.exemplar.cod_identificacao}</p>
+              <p>• {e.emprestimo.status == 'devolvido' ? '🟢Devolvido' : e.emprestimo.status == 'em aberto' ? '🟠Em aberto' : ' 🔴Em atraso'}</p>
+            </div>
           </div>
         </article>
       )
@@ -535,9 +538,11 @@ const Home = () => {
       conteudo = paginar(devolucoes).map((e) =>
         <article className="card-content">
           <div className="box-text">
-            <p>Identificação: {e.emprestimo.emprestimo_exemplar[0].exemplar.cod_identificacao}</p>
-            <p>Titulo: {e.emprestimo.emprestimo_exemplar[0].exemplar.livro.titulo}</p>
-            <p>Data Devolução: {dataConvertida(e.data_devolucao)}</p>
+            <span>Titulo: {e.emprestimo.emprestimo_exemplar[0].exemplar.livro.titulo}</span>
+            <div>
+              <p>{e.emprestimo.emprestimo_exemplar[0].exemplar.cod_identificacao}</p>
+              <p>• {dataConvertida(e.data_devolucao)}</p>
+            </div>
           </div>
         </article>
       )
